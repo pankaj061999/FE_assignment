@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# 📦 Shipping Cost Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A modern React SPA to calculate international shipping costs from India.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A clean, responsive web app to estimate and manage shipping costs for boxes sent internationally.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ✨ Highlights
 
-### `npm test`
+- 🧠 Real-time cost calculator  
+- 📋 Box management with validation  
+- 📊 Table + Card views  
+- 📤 Export CSV, search, sort, delete  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧰 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React 18**, **Context API**, **Hooks**  
+- **Tailwind CSS**, **Lucide Icons**  
+- **MVC Architecture**  
+- **Simulated API Service**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 Features
 
-### `npm run eject`
+- Add boxes with validation  
+- View boxes in table or mobile card layout  
+- Search, sort, and filter by country  
+- Export data as CSV  
+- Delete individual boxes  
+- Real-time statistics: total cost, weight, boxes  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Folder Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── components/         # UI components
+├── context/            # App state (ShippingContext)
+├── models/             # Logic & calculations (ShippingModel)
+├── services/           # API simulation (ShippingService)
+├── App.jsx, index.js   # Main files
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ⚙️ Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/yourusername/shipping-calculator.git
+cd shipping-calculator
+npm install
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Tailwind CSS Setup:**
+```bash
+npx tailwindcss init -p
+```
 
-### Code Splitting
+**Optional `.env`:**
+```env
+REACT_APP_API_URL=http://localhost:3000/api
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📌 Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Go to "Add Box", fill in details (name, weight, color, country)
+- Preview and save shipping cost
+- View in the "View Boxes" table
+- Use filters, search, delete, and export
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🧠 Architecture (MVC)
 
-### Advanced Configuration
+- **Model:** `ShippingModel.js` — rates, validation, color conversion  
+- **View:** `BoxForm`, `BoxTable`, `Navbar` — UI components  
+- **Controller:** `ShippingContext.jsx` — app state & logic  
+- **Service:** `ShippingService.js` — simulates API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🧪 Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm test
+npm test -- --coverage
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🌍 Deployment
+
+### Netlify
+- Push to GitHub
+- Connect via dashboard or CLI:
+```bash
+netlify deploy
+```
+
+### GitHub Pages
+```bash
+npm install gh-pages --save-dev
+npm run build
+npm run deploy
+```
+
+---
+
+## 📡 API Simulation
+
+```http
+POST    /api/boxes      # Add new box
+GET     /api/boxes      # Get all boxes
+DELETE  /api/boxes/:id  # Delete box
+```
+
+(Replace with real API in `ShippingService.js` as needed)
+
+---
+
+## 📌 FAQ
+
+- **Add more countries?** → Update `ShippingModel.countries`  
+- **Persist data?** → Use `localStorage` or connect backend  
+- **Change rates?** → Edit model  
+- **Max weight?** → Configurable (default: 10,000kg)
+
+---
+
+## 📞 Contact
+
+**Maintainer:** Your Name  
+📧 pankajkmeena12@gmail.com  
+🐙 [GitHub](https://github.com/pankaj061999)  
+
+---
+
+## 🔮 Roadmap
+
+- User authentication  
+- Backend API + database  
+- Edit functionality  
+- Label printing, multi-currency  
+- Offline mode / PWA  
+- Dark mode  
+- Multi-language support  
+
+---
+
+## ⭐ Star this Repo
+
+If this project helped you, give it a ⭐ on GitHub!
+
+---
